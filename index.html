@@ -39,7 +39,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mpegts.js@1.7.3/dist/mpegts.min.js"></script>
 </head>
 <body>
-  <div id="status">Waiting for AI Media Tracker...</div>
+  <div id="status">Connecting...</div>
   <video id="videoElement" autoplay muted></video>
 
   <script>
@@ -56,7 +56,7 @@
     context.addCustomMessageListener(CUSTOM_CHANNEL, (customEvent) => {
       const data = customEvent.data;
       if (data && data.type === 'connect' && data.ws_url) {
-        statusEl.innerText = "Connecting to HA Stream...";
+        statusEl.innerText = "Loading...";
         startStream(data.ws_url);
       }
     });
